@@ -1,0 +1,19 @@
+{
+  "name": "student",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "keerthik",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "serverless-offline": "^12.0.4"
+  },
+  "dependencies": {
+    "mongodb": "^5.5.0",
+    "mongoose": "^7.2.0"
+  }
+}

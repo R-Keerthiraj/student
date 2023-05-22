@@ -1,0 +1,56 @@
+service: student
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  timeout: 30
+  environment:
+      MONGODB_URI: mongodb+srv://keerthikmca05:keerthik29@cluster0.ighxidg.mongodb.net/student?retryWrites=true&w=majority
+
+functions:
+  createStudent:
+    handler: src/handler.createStudent
+    events:
+      - http:
+          path: /student
+          method: POST
+  listStudent:
+    handler: src/handler.listStudent
+    events:
+      - http:
+          path: /student
+          method: GET
+  readStudent:
+    handler: src/handler.readStudent
+    events:
+      - http:
+          path: /student/{id}
+          method: GET
+          request: 
+             parameters: 
+               paths: 
+                 id: true
+  updateStudent:
+    handler: src/handler.updateStudent
+    events:
+      - http:
+          path: /student/{id}
+          method: PATCH
+          request: 
+             parameters: 
+               paths: 
+                 id: true
+  deleteStudent:
+    handler: src/handler.deleteStudent
+    events:
+      - http:
+          path: /student/{id}
+          method: DELETE
+          request:
+             parameters: 
+               paths:
+                 id: true
+plugins:
+  - serverless-offline
